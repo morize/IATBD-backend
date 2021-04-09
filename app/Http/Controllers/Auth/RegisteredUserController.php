@@ -36,5 +36,15 @@ class RegisteredUserController extends Controller
         ]));
 
         event(new Registered($user));
+
+        $newUser = User::where("email", "=", $request->email)->first();
+
+        $newUserData = [
+            "username"  => $newUser->name,
+            "blocked" => $newUser->blocked,
+            "admin" => $newUser->admin,
+        ];
+
+        return response()->json($userData);
     }
 }

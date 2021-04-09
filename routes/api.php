@@ -24,5 +24,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get("/show", '\App\Http\Controllers\PetController@show')->middleware('auth:sanctum');
 
 Route::post("/account/login", [AuthenticatedSessionController::class, 'store']);
-Route::post("/account/register", [RegisteredUserController::class, 'store']);
 Route::post("/account/logout", [AuthenticatedSessionController::class, 'destroy'])->middleware('auth:sanctum');
+Route::post("/account/register", [RegisteredUserController::class, 'store']);
