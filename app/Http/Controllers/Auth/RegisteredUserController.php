@@ -45,6 +45,6 @@ class RegisteredUserController extends Controller
             "admin" => $newUser->admin,
         ];
 
-        return response()->json($userData);
+        return response()->json($newUserData);
     }
 }

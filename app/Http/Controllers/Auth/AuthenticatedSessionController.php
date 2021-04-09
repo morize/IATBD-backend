@@ -27,9 +27,9 @@ class AuthenticatedSessionController extends Controller
         $user = User::where("email", "=", $request->email)->first();
 
         $userData = [
-            "username"  => $newUser->name,
-            "blocked" => $newUser->blocked,
-            "admin" => $newUser->admin,
+            "username"  => $user->name,
+            "blocked" => $user->blocked,
+            "admin" => $user->admin,
         ];
         
         return response()->json($userData);
