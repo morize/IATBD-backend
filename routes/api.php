@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Auth\RegisteredUserController;
+
+use App\Http\Controllers\PetController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +19,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+
+
+Route::get("/account/data", [UserController::class, 'getUserData'])->middleware('auth:sanctum');
+Route::get("/show", [PetController::class, 'show'])->middleware('auth:sanctum');
+
+Route::post("/account/login", [AuthenticatedSessionController::class, 'store']);
+Route::post("/account/logout", [AuthenticatedSessionController::class, 'destroy'])->middleware('auth:sanctum');
+Route::post("/account/register", [RegisteredUserController::class, 'store']);
