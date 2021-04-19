@@ -24,15 +24,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
   
-        $user = User::where("email", "=", $request->email)->first();
-
-        $userData = [
-            "username"  => $user->name,
-            "blocked" => $user->blocked,
-            "admin" => $user->admin,
-        ];
-        
-        return response()->json($userData);
+        return response()->json($request->user());
     }
 
     /**

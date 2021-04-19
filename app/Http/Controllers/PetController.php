@@ -8,6 +8,6 @@ class PetController extends Controller
 {
     public function show()
     {
-        return "hi lol";
+        return "test";
     }
 }
