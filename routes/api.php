@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
+use App\Http\Controllers\Auth\VerifyEmailController;
 
 use App\Http\Controllers\PetController;
 use App\Http\Controllers\UserController;
@@ -21,10 +22,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get("/account/data", [UserController::class, 'getUserData'])->middleware('auth:sanctum');
+
 Route::get("/show", [PetController::class, 'show'])->middleware('auth:sanctum');
 
 Route::post("/account/login", [AuthenticatedSessionController::class, 'store']);
 Route::post("/account/register", [RegisteredUserController::class, 'store']);
 Route::post("/account/logout", [AuthenticatedSessionController::class, 'destroy'])->middleware('auth:sanctum');
 Route::post("/account/email/verification/send", [EmailVerificationNotificationController::class, 'store'])->middleware('auth:sanctum');
+Route::post("/account/user/details", [UserController::class, 'getUserDetails'])->middleware('auth:sanctum');
