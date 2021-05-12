@@ -16,7 +16,7 @@ class CreateAnimalAndBreedTable extends Migration
         Schema::create('animal_and_breed', function (Blueprint $table) {
             $table->string('animal');
             $table->string('breed');
-            $table->unique(['animal', 'breed'], 'unq_ab_comb');
+            $table->unique(['breed', 'animal'], 'unq_ab_comb');
         });
     }
 
