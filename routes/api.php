@@ -27,6 +27,6 @@ Route::get("/show", [PetController::class, 'show'])->middleware('auth:sanctum');
 
 Route::post("/account/login", [AuthenticatedSessionController::class, 'store']);
 Route::post("/account/register", [RegisteredUserController::class, 'store']);
-Route::post("/account/logout", [AuthenticatedSessionController::class, 'destroy'])->middleware('auth:sanctum');
+Route::post("/account/logout", [AuthenticatedSessionController::class, 'destroy']);
 Route::post("/account/email/verification/send", [EmailVerificationNotificationController::class, 'store'])->middleware('auth:sanctum');
 Route::post("/account/user/details", [UserController::class, 'getUserDetails'])->middleware('auth:sanctum');
