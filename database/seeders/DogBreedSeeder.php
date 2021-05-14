@@ -18,7 +18,7 @@ class DogBreedSeeder extends Seeder
         
         foreach ($dog_breed_array as $breed) {
             DB::table('pet_kind_and_breed')->insert([
-                'kind' => "Dog",
+                'kind' => "Hond",
                 'breed' => $breed,
             ]);
         }

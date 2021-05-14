@@ -19,7 +19,7 @@ class CreatePetsTable extends Migration
             $table->string("pet_name");
             $table->string("pet_kind");
             $table->string("pet_breed");
-            $table->boolean("sitted");
+            $table->boolean("available");
             $table->foreign("owner_id")->references("uuid")->on("users");
         });
     }

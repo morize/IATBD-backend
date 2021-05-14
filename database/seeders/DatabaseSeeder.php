@@ -18,6 +18,9 @@ class DatabaseSeeder extends Seeder
             DogBreedSeeder::class,
             HamsterBreedSeeder::class,
             ParkietBreedSeeder::class,
+
+            UserSeeder::class,
+            PetsSeeder::class,
         ]);
     }
 }

@@ -24,8 +24,13 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get("/pet/kind", [PetKindBreedController::class, 'getPetKinds']);
+Route::get("/pet/kinds", [PetKindBreedController::class, 'getPetKinds']);
 Route::get("/pet/{kind}/breeds", [PetKindBreedController::class, 'getPetBreedsFromKind']);
+Route::get("/pet/profile/{id}", [PetController::class, 'getSpecificPet']);
+
+Route::get("/sitter/pets", [PetController::class, 'getAvailablePets']);
+Route::get("/sitter/pets/{kind}", [PetController::class, 'getAvailablePetsFromKind']);
+//Route::get("/sitter/pets/{hourly_fee}", [PetController::class, 'getAvailablePetsFromHourlyFee']);
 
 Route::post("/account/login", [AuthenticatedSessionController::class, 'store']);
 Route::post("/account/register", [RegisteredUserController::class, 'store']);
