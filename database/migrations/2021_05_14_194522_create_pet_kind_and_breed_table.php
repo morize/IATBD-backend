@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAnimalAndBreedTable extends Migration
+class CreatePetKindAndBreedTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateAnimalAndBreedTable extends Migration
      */
     public function up()
     {
-        Schema::create('animal_and_breed', function (Blueprint $table) {
-            $table->string('animal');
+        Schema::create('pet_kind_and_breed', function (Blueprint $table) {
+            $table->string('kind');
             $table->string('breed');
-            $table->unique(['animal', 'breed'], 'unq_ab_comb');
+            $table->unique(['kind', 'breed'], 'unq_ab_comb');
         });
     }
 
@@ -27,6 +27,6 @@ class CreateAnimalAndBreedTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('animal_and_breed');
+        Schema::dropIfExists('pet_kind_and_breed');
     }
 }

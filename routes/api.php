@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 
 use App\Http\Controllers\PetController;
+use App\Http\Controllers\PetKindBreedController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -23,7 +24,8 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get("/show", [PetController::class, 'show'])->middleware('auth:sanctum');
+Route::get("/pet/kind", [PetKindBreedController::class, 'getPetKinds']);
+Route::get("/pet/{kind}/breeds", [PetKindBreedController::class, 'getPetBreedsFromKind']);
 
 Route::post("/account/login", [AuthenticatedSessionController::class, 'store']);
 Route::post("/account/register", [RegisteredUserController::class, 'store']);

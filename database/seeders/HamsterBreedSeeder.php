@@ -15,9 +15,10 @@ class HamsterBreedSeeder extends Seeder
     public function run()
     {
         $hamster_breed_array = ["Syrian","Dwarf Campbell","Dwarf White Russian","Roborovski","Chinese","Golden"];
+        
         foreach ($hamster_breed_array as $breed) {
-            DB::table('animal_and_breed')->insert([
-                'animal' => "Hamster",
+            DB::table('pet_kind_and_breed')->insert([
+                'kind' => "Hamster",
                 'breed' => $breed,
             ]);
         }

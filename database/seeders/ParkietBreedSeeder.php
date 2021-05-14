@@ -17,8 +17,8 @@ class ParkietBreedSeeder extends Seeder
         $parkiet_breed_array = ["Grasparkiet","Monniksparkiet","Pruimkopparkiet","Valkparkiet","Turquoisine parkiet","Regentparkiet"];
         
         foreach ($parkiet_breed_array as $breed) {
-            DB::table('animal_and_breed')->insert([
-                'animal' => "Parkiet",
+            DB::table('pet_kind_and_breed')->insert([
+                'kind' => "Parkiet",
                 'breed' => $breed,
             ]);
         }
