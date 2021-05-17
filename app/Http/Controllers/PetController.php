@@ -16,4 +16,9 @@ class PetController extends Controller
     {
         return Pets::where("id", "=", $id)->first();
     }
+
+    public function create(Request $request)
+    {
+        
+    }
 }

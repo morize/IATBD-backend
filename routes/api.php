@@ -24,15 +24,15 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get("/pet/kinds", [PetKindBreedController::class, 'index']);
-Route::get("/pet/{kind}/breeds", [PetKindBreedController::class, 'show']);
+Route::get("/pet-kinds", [PetKindBreedController::class, 'index']);
+Route::get("/pet-kinds/{kind}", [PetKindBreedController::class, 'show']);
 
-Route::get("/sitter/pets", [PetController::class, 'index']);
-Route::get("/pet/profile/{id}", [PetController::class, 'show']);
+Route::get("/pets", [PetController::class, 'index']);
+Route::get("/pets/{id}", [PetController::class, 'show']);
 
-Route::post("/account/user/details", [UserController::class, 'store'])->middleware('auth:sanctum');
+Route::get("/account/user/{id}", [UserController::class, 'show'])->middleware('auth:sanctum');
 
 Route::post("/account/login", [AuthenticatedSessionController::class, 'store']);
 Route::post("/account/register", [RegisteredUserController::class, 'store']);
 Route::post("/account/logout", [AuthenticatedSessionController::class, 'destroy']);
-Route::post("/account/email/verification/send", [EmailVerificationNotificationController::class, 'store'])->middleware('auth:sanctum');
+Route::post("/account/email-verification", [EmailVerificationNotificationController::class, 'store'])->middleware('auth:sanctum');
