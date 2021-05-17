@@ -20,6 +20,10 @@ class PetsSeeder extends Seeder
             'pet_kind' => "Hond",
             'pet_breed' => "Boxer",
             'available' => false,
+            'sit_hourly_prize' => 2.99,
+            'sit_date_start' => "3/2/2019",
+            'sit_date_end' => "7/2/2019",
+            'sit_remarks' => "Hallo yes help",
         ]);
 
         DB::table('pets')->insert([
@@ -28,6 +32,10 @@ class PetsSeeder extends Seeder
             'pet_kind' => "Hond",
             'pet_breed' => "Corgi",
             'available' => true,
+            'sit_hourly_prize' => 2.99,
+            'sit_date_start' => "3/2/2019",
+            'sit_date_end' => "7/2/2019",
+            'sit_remarks' => "Hallo yes help",
         ]);
         
         DB::table('pets')->insert([
@@ -36,6 +44,10 @@ class PetsSeeder extends Seeder
             'pet_kind' => "Hamster",
             'pet_breed' => "Dwarf White Russian",
             'available' => true,
+            'sit_hourly_prize' => 7.99,
+            'sit_date_start' => "3/2/2019",
+            'sit_date_end' => "7/2/2019",
+            'sit_remarks' => "rtnjtnrssadf",
         ]);
 
         DB::table('pets')->insert([
@@ -44,6 +56,10 @@ class PetsSeeder extends Seeder
             'pet_kind' => "Kat",
             'pet_breed' => "Bengal",
             'available' => true,
+            'sit_hourly_prize' => 12.99,
+            'sit_date_start' => "3/2/2019",
+            'sit_date_end' => "7/2/2019",
+            'sit_remarks' => "qweqweqweqwesxdsa",
         ]);
 
         DB::table('pets')->insert([
@@ -52,6 +68,10 @@ class PetsSeeder extends Seeder
             'pet_kind' => "Parkiet",
             'pet_breed' => "Monniksparkiet",
             'available' => true,
+            'sit_hourly_prize' => 10.99,
+            'sit_date_start' => "8/2/2019",
+            'sit_date_end' => "24/2/2019",
+            'sit_remarks' => "Hallo yqweqweqwes help",
         ]);
     }
 }
