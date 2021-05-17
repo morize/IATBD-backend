@@ -17,7 +17,7 @@ class AddSitDetailsToPetsTable extends Migration
             $table->double('sit_hourly_prize');
             $table->string('sit_date_start');
             $table->string('sit_date_end');
-            $table->string("sit_remarks")->default("Er zijn geen opmerkingen voor dit huisdier");
+            $table->string('sit_remarks')->default("Er zijn geen opmerkingen voor dit huisdier");
         });
     }
 

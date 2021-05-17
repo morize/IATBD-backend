@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
-    public function getUserDetails(Request $request)
+    public function store(Request $request)
     {
         return $request->user();
     }

@@ -7,17 +7,12 @@ use App\Models\Pets;
 
 class PetController extends Controller
 {
-    public function getAvailablePets()
+    public function index()
     {
-        return Pets::where("available", "=", "1")->get();
+        return Pets::where("pet_status", "=", "available")->get();
     }
 
-    public function getAvailablePetsFromKind($kind)
-    {
-        return Pets::where("available", "=", "1")->where("pet_kind", "=", $kind)->get();
-    }
-
-    public function getSpecificPet($id)
+    public function show($id)
     {
         return Pets::where("id", "=", $id)->first();
     }

@@ -18,7 +18,10 @@ class DatabaseSeeder extends Seeder
             DogBreedSeeder::class,
             HamsterBreedSeeder::class,
             ParkietBreedSeeder::class,
-
+            
+            UserStatusSeeder::class,
+            PetStatusSeeder::class,
+            RolesSeeder::class,
             UserSeeder::class,
             PetsSeeder::class,
         ]);

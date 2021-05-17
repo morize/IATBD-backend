@@ -24,16 +24,15 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get("/pet/kinds", [PetKindBreedController::class, 'getPetKinds']);
-Route::get("/pet/{kind}/breeds", [PetKindBreedController::class, 'getPetBreedsFromKind']);
-Route::get("/pet/profile/{id}", [PetController::class, 'getSpecificPet']);
+Route::get("/pet/kinds", [PetKindBreedController::class, 'index']);
+Route::get("/pet/{kind}/breeds", [PetKindBreedController::class, 'show']);
 
-Route::get("/sitter/pets", [PetController::class, 'getAvailablePets']);
-Route::get("/sitter/pets/{kind}", [PetController::class, 'getAvailablePetsFromKind']);
-//Route::get("/sitter/pets/{hourly_fee}", [PetController::class, 'getAvailablePetsFromHourlyFee']);
+Route::get("/sitter/pets", [PetController::class, 'index']);
+Route::get("/pet/profile/{id}", [PetController::class, 'show']);
+
+Route::post("/account/user/details", [UserController::class, 'store'])->middleware('auth:sanctum');
 
 Route::post("/account/login", [AuthenticatedSessionController::class, 'store']);
 Route::post("/account/register", [RegisteredUserController::class, 'store']);
 Route::post("/account/logout", [AuthenticatedSessionController::class, 'destroy']);
 Route::post("/account/email/verification/send", [EmailVerificationNotificationController::class, 'store'])->middleware('auth:sanctum');
-Route::post("/account/user/details", [UserController::class, 'getUserDetails'])->middleware('auth:sanctum');

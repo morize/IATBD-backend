@@ -20,8 +20,9 @@ class CreateUsersMediaTable extends Migration
             $table->string('image_2')->nullable();
             $table->string('image_3')->nullable();
             $table->string('video_link')->nullable();
-            $table->foreign('user_id')->references('uuid')->on('users');
             $table->timestamps();
+            
+            $table->foreign('user_id')->references('uuid')->on('users');
         });
     }
 
@@ -32,6 +33,8 @@ class CreateUsersMediaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users_media');
+        Schema::table('users_media',function(Blueprint $table){
+            $table->dropColumn('users_media_user_id_foreign');
+        });
     }
 }

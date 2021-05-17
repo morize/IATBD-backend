@@ -7,12 +7,12 @@ use App\Models\PetKindBreed;
 
 class PetKindBreedController extends Controller
 {
-    public function getPetKinds()
+    public function index()
     {
         return PetKindBreed::all()->unique('kind')->pluck('kind');
     }
 
-    public function getPetBreedsFromKind($kind)
+    public function show($kind)
     {
         return PetKindBreed::where("kind","=",$kind)->pluck('breed');
     }

@@ -16,12 +16,14 @@ class CreatePetsTable extends Migration
         Schema::create('pets', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger("owner_id");
-            $table->string("pet_name");
-            $table->string("pet_kind");
-            $table->string("pet_breed");
+            $table->string('pet_name');
+            $table->string('pet_kind');
+            $table->string('pet_breed');
             $table->string('pet_image')->default("/img/pet_default.jpg");
-            $table->boolean("available");
-            $table->foreign("owner_id")->references("uuid")->on("users");
+            $table->string('pet_status')->default("available");
+
+            $table->foreign('owner_id')->references('uuid')->on('users');
+            $table->foreign('pet_status')->references('status')->on('pet_status');
         });
     }
 
@@ -32,6 +34,9 @@ class CreatePetsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pets');
+        Schema::table('pets',function(Blueprint $table){
+            $table->dropColumn('pets_owner_id_foreign');
+            $table->dropColumn('pets_pet_status_foreign');
+        });
     }
 }

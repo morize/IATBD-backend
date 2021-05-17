@@ -15,11 +15,12 @@ class CreateSittersTable extends Migration
     {
         Schema::create('sitters', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('sit_user_id');
+            $table->unsignedBigInteger('user_id');
             $table->string('sit_rating');
             $table->string('sit_status');
-            $table->foreign('sit_user_id')->references('uuid')->on('users');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('uuid')->on('users');
         });
     }
 
@@ -30,6 +31,8 @@ class CreateSittersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sitters');
+        Schema::table('sitters',function(Blueprint $table){
+            $table->dropColumn('sitters_user_id_foreign');
+        });
     }
 }
