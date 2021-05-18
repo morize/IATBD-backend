@@ -10,6 +10,8 @@ class Pets extends Model
 {
     public $table = 'pets';
 
+    public $timestamps = false;
+    
     public function myOwner(){
         return $this->belongsTo(User::class,'owner_id','uuid');
     }

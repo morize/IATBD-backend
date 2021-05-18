@@ -28,7 +28,9 @@ Route::get("/pet-kinds", [PetKindBreedController::class, 'index']);
 Route::get("/pet-kinds/{kind}", [PetKindBreedController::class, 'show']);
 
 Route::get("/pets", [PetController::class, 'index']);
+Route::post("/pets", [PetController::class, 'store']);
 Route::get("/pets/{id}", [PetController::class, 'show']);
+Route::get("/pets/{id}/image", [PetController::class, 'getPetImage']);
 
 Route::get("/account/user/{id}", [UserController::class, 'show'])->middleware('auth:sanctum');
 
