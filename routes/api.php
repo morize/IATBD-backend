@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\PetController;
 use App\Http\Controllers\PetKindBreedController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UsersMediaController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -30,9 +31,14 @@ Route::get("/pet-kinds/{kind}", [PetKindBreedController::class, 'show']);
 Route::get("/pets", [PetController::class, 'index']);
 Route::post("/pets", [PetController::class, 'store']);
 Route::get("/pets/{id}", [PetController::class, 'show']);
-Route::get("/pets/{id}/image", [PetController::class, 'getPetImage']);
+Route::get("/pets/{id}/image", [PetController::class, 'showImage']);
 
-Route::get("/account/user/{id}", [UserController::class, 'show'])->middleware('auth:sanctum');
+Route::post("/users-media", [UsersMediaController::class, 'store']);
+Route::get("/users-media/{userId}", [UsersMediaController::class, 'show']);
+Route::put("/users-media/{userId}", [UsersMediaController::class, 'update']);
+
+Route::get("/account/user/{id}", [UserController::class, 'show']);
+Route::get("/account/user/{id}/pets", [UserController::class, 'showUserPets']);
 
 Route::post("/account/login", [AuthenticatedSessionController::class, 'store']);
 Route::post("/account/register", [RegisteredUserController::class, 'store']);

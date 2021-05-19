@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 use App\Models\Pets;
 
@@ -21,7 +19,7 @@ class PetController extends Controller
         return Pets::where("id", "=", $id)->first();
     }
 
-    public function getPetImage($id)
+    public function showImage($id)
     {
         $pathToFile = Pets::select('pet_image')->where("id", "=", $id)->pluck('pet_image')->first();
         
