@@ -26,7 +26,7 @@ class PetsSeeder extends Seeder
         ]);
 
         DB::table('pets')->insert([
-            'owner_id' => 2,
+            'owner_id' => 1,
             'pet_name' => "Pepe",
             'pet_kind' => "Hond",
             'pet_breed' => "Corgi",
@@ -37,7 +37,7 @@ class PetsSeeder extends Seeder
         ]);
         
         DB::table('pets')->insert([
-            'owner_id' => 2,
+            'owner_id' => 1,
             'pet_name' => "Mong",
             'pet_kind' => "Hamster",
             'pet_breed' => "Dwarf White Russian",
@@ -59,7 +59,7 @@ class PetsSeeder extends Seeder
         ]);
 
         DB::table('pets')->insert([
-            'owner_id' => 2,
+            'owner_id' => 1,
             'pet_name' => "Lorenzo",
             'pet_kind' => "Parkiet",
             'pet_breed' => "Monniksparkiet",
