@@ -35,9 +35,10 @@ Route::post("/pets", [PetController::class, 'store']);
 Route::get("/pets/{id}", [PetController::class, 'show']);
 Route::get("/pets/{id}/image", [PetController::class, 'showImage']);
 
-Route::post("/users-media", [UsersMediaController::class, 'store']);
 Route::get("/users-media/{userId}", [UsersMediaController::class, 'show']);
-Route::put("/users-media/{userId}", [UsersMediaController::class, 'update']);
+Route::post("/users-media", [UsersMediaController::class, 'store']);
+Route::post("/users-media/{userId}", [UsersMediaController::class, 'update']);
+Route::get("/users-media/images/{imageFileName}", [UsersMediaController::class, 'showImage']);
 
 Route::get("/user/{id}", [UserController::class, 'show']);
 Route::get("/user/{id}/pets", [UserController::class, 'showUserPets']);

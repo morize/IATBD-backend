@@ -15,7 +15,7 @@ class CreateUsersMediaTable extends Migration
     {
         Schema::create('users_media', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->unique();
             $table->string('image_1')->nullable()->default(null);
             $table->string('image_2')->nullable()->default(null);
             $table->string('video_link')->nullable();
