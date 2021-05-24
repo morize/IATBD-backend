@@ -63,19 +63,4 @@ class SitterPetChoicesController extends Controller
             }
         }
     }
-        
-
-
-        
-        // $sitterInstance = Sitters::where("user_id", "=", $userId)->first();
-        // $sitterInstance->sit_status = $request->input('sitter_status'); 
-
-        // try{
-        //     $sitterInstance->save();
-        //     return "success";
-        // }
-        // catch(Exception $e){
-        //     return $e;
-        // }
-    
 }
