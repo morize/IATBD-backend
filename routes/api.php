@@ -11,6 +11,7 @@ use App\Http\Controllers\PetController;
 use App\Http\Controllers\PetKindBreedController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UsersMediaController;
+use App\Http\Controllers\SittersController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -32,17 +33,19 @@ Route::get("/pet-kinds/{kind}/breeds", [PetKindBreedController::class, 'show']);
 
 Route::get("/pets", [PetController::class, 'index']);
 Route::post("/pets", [PetController::class, 'store']);
-Route::get("/pets/{id}", [PetController::class, 'show']);
-Route::get("/pets/{id}/image", [PetController::class, 'showImage']);
+Route::get("/pets/{userId}", [PetController::class, 'show']);
+Route::get("/pets/{userId}/image", [PetController::class, 'showImage']);
 
 Route::get("/users-media/{userId}", [UsersMediaController::class, 'show']);
 Route::post("/users-media", [UsersMediaController::class, 'store']);
 Route::post("/users-media/{userId}", [UsersMediaController::class, 'update']);
 Route::get("/users-media/images/{imageFileName}", [UsersMediaController::class, 'showImage']);
 
-Route::get("/user/{id}", [UserController::class, 'show']);
-Route::get("/user/{id}/pets", [UserController::class, 'showUserPets']);
+Route::get("/user/{userId}", [UserController::class, 'show']);
+Route::get("/user/{userId}/pets", [UserController::class, 'showUserPets']);
 
+Route::get("/sitters/{userId}", [SittersController::class, 'show']);
+Route::get("/sitters/{userId}/pets", [SittersController::class, 'showPetPreferences']);
 
 Route::post("/login", [AuthenticatedSessionController::class, 'store']);
 Route::post("/logout", [AuthenticatedSessionController::class, 'destroy']);

@@ -15,12 +15,12 @@ class CreateSittersTable extends Migration
     {
         Schema::create('sitters', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->string('sit_rating');
+            $table->unsignedBigInteger('user_id')->unique();
+            $table->integer('sit_rating')->nullable();
             $table->string('sit_status');
-            $table->timestamps();
 
             $table->foreign('user_id')->references('uuid')->on('users');
+            $table->foreign('sit_status')->references('status')->on('user_status');
         });
     }
 
