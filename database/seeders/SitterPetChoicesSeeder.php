@@ -14,17 +14,17 @@ class SitterPetChoicesSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('available_pets_for_sitter')->insert([
-            'sitter_id' => 1,
-            'pet_kind' => "Kat",
-        ]);
-        DB::table('available_pets_for_sitter')->insert([
-            'sitter_id' => 1,
-            'pet_kind' => "Hond",
-        ]);
-        DB::table('available_pets_for_sitter')->insert([
-            'sitter_id' => 1,
-            'pet_kind' => "Parkiet",
-        ]);
+        // DB::table('available_pets_for_sitter')->insert([
+        //     'sitter_id' => 1,
+        //     'pet_kind' => "Kat",
+        // ]);
+        // DB::table('available_pets_for_sitter')->insert([
+        //     'sitter_id' => 1,
+        //     'pet_kind' => "Hond",
+        // ]);
+        // DB::table('available_pets_for_sitter')->insert([
+        //     'sitter_id' => 1,
+        //     'pet_kind' => "Parkiet",
+        // ]);
     }
 }

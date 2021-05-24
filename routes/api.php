@@ -46,9 +46,11 @@ Route::get("/users-media/images/{imageFileName}", [UsersMediaController::class, 
 Route::get("/user/{userId}", [UserController::class, 'show']);
 Route::get("/user/{userId}/pets", [UserController::class, 'showUserPets']);
 
+Route::post("/sitters", [SittersController::class, 'store']);
 Route::get("/sitters/{userId}", [SittersController::class, 'show']);
 Route::post("/sitters/{userId}", [SittersController::class, 'update']);
 
+Route::post("/sitter-preferences", [SitterPetChoicesController::class, 'store']);
 Route::get("/sitter-preferences/{userId}", [SitterPetChoicesController::class, 'show']);
 Route::post("/sitter-preferences/{userId}", [SitterPetChoicesController::class, 'update']);
 

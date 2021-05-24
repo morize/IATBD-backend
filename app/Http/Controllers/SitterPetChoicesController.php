@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Sitters;
 use App\Models\SitterPetChoices;
+
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
 class SitterPetChoicesController extends Controller
@@ -12,6 +14,24 @@ class SitterPetChoicesController extends Controller
 
     public function show($userId){
         return Sitters::where("user_id", "=", $userId)->first()->myPetPreferences->pluck('pet_kind');
+    }
+
+    public function store(Request $request){
+        $requestPreferences= json_decode($request->all()['sitter_preferences']);
+        $sitterId = Sitters::where("user_id", "=", Auth::id())->pluck('id')->first();
+
+        foreach($requestPreferences as $requestPreference){
+            if($requestPreference->checked){
+                $newPetPreference = new SitterPetChoices;
+                $newPetPreference->sitter_id= $sitterId;
+                $newPetPreference->pet_kind= $requestPreference->kind;
+                try{
+                    $newPetPreference->save();
+                }catch(Exception $e){
+                    return $e;
+                }
+            }
+        }
     }
 
     public function update(Request $request, $userId){
