@@ -12,6 +12,8 @@ use App\Http\Controllers\PetKindBreedController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UsersMediaController;
 use App\Http\Controllers\SittersController;
+use App\Http\Controllers\SitterPetChoicesController;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -45,7 +47,10 @@ Route::get("/user/{userId}", [UserController::class, 'show']);
 Route::get("/user/{userId}/pets", [UserController::class, 'showUserPets']);
 
 Route::get("/sitters/{userId}", [SittersController::class, 'show']);
-Route::get("/sitters/{userId}/pets", [SittersController::class, 'showPetPreferences']);
+Route::post("/sitters/{userId}", [SittersController::class, 'update']);
+
+Route::get("/sitter-preferences/{userId}", [SitterPetChoicesController::class, 'show']);
+Route::post("/sitter-preferences/{userId}", [SitterPetChoicesController::class, 'update']);
 
 Route::post("/login", [AuthenticatedSessionController::class, 'store']);
 Route::post("/logout", [AuthenticatedSessionController::class, 'destroy']);

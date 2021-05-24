@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class SitterPetChoices extends Model
 {
     public $table = 'available_pets_for_sitter';
+    
+    public $timestamps = false;
 }

@@ -10,6 +10,8 @@ class Sitters extends Model
 {
     public $table = 'sitters';
 
+    public $timestamps = false;
+    
     public function myPetPreferences(){
         return $this->hasMany(SitterPetChoices::class,'sitter_id','id');
     }

@@ -21,8 +21,9 @@ class UserStatusSeeder extends Seeder
         DB::table('user_status')->insert([
             'status' => "blocked",
         ]);
+
         DB::table('user_status')->insert([
-            'status' => "suspended",
+            'status' => "inactive",
         ]);
     }
 }
