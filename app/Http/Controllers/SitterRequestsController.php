@@ -17,6 +17,8 @@ class SitterRequestsController extends Controller
         $sitterRequest->sitter_id = $request->input('sitter_id');
         $sitterRequest->pet_id = $request->input('pet_id');
         $sitterRequest->request_status = "pending";
+        $sitterRequest->owner_name = $request->input('owner_name');
+        $sitterRequest->pet_name = $request->input('pet_name');
 
         if($request->input('sitter_remarks')){
             $sitterRequest->sitter_remarks = $request->input('sitter_remarks');

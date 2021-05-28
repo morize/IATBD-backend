@@ -17,11 +17,13 @@ class CreateSitterRequestsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('sitter_id');
             $table->unsignedBigInteger('pet_id');
+            $table->string('owner_name');
+            $table->string('pet_name');
             $table->string('sitter_remarks')->nullable();
             $table->string('request_status');
             $table->unique(['sitter_id', 'pet_id'], 'unq_ab_comb');
 
-            $table->foreign('sitter_id')->references('id')->on('sitters');
+            $table->foreign('owner_name')->references('name')->on('users');
             $table->foreign('pet_id')->references('id')->on('pets');
             $table->foreign('request_status')->references('status')->on('sitter_requests_status');
         });

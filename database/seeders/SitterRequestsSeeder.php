@@ -18,14 +18,18 @@ class SitterRequestsSeeder extends Seeder
             'sitter_id' => 1,
             'pet_id' => 1,
             'sitter_remarks' => "Dit is een opmerking",
-            'request_status' => 'pending'
+            'request_status' => 'pending',
+            'owner_name' => 'Mauriccio',
+            'pet_name' => 'Carlos',
         ]);
         
         DB::table('sitter_requests')->insert([
             'sitter_id' => 1,
             'pet_id' => 2,
             'sitter_remarks' => "Dit wwww een opmerking",
-            'request_status' => 'pending'
+            'request_status' => 'pending',
+            'owner_name' => 'Mauriccio',
+            'pet_name' => 'Pepe',
         ]);
     }
 }
