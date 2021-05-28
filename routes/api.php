@@ -13,6 +13,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\UsersMediaController;
 use App\Http\Controllers\SittersController;
 use App\Http\Controllers\SitterPetChoicesController;
+use App\Http\Controllers\SitterRequestsController;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -48,11 +49,16 @@ Route::get("/user/{userId}/pets", [UserController::class, 'showUserPets']);
 
 Route::post("/sitters", [SittersController::class, 'store']);
 Route::get("/sitters/{userId}", [SittersController::class, 'show']);
+Route::get("/sitters/{userId}/requests", [SittersController::class, 'showSitterRequests']);
 Route::post("/sitters/{userId}", [SittersController::class, 'update']);
 
 Route::post("/sitter-preferences", [SitterPetChoicesController::class, 'store']);
 Route::get("/sitter-preferences/{userId}", [SitterPetChoicesController::class, 'show']);
 Route::post("/sitter-preferences/{userId}", [SitterPetChoicesController::class, 'update']);
+
+Route::post("/sitter-requests", [SitterRequestsController::class, 'store']);
+Route::get("/sitter-requests/{sitterRequestId}", [SitterRequestsController::class, 'show']);
+Route::post("/sitter-requests/{sitterRequestId}", [SitterRequestsController::class, 'update']);
 
 Route::post("/login", [AuthenticatedSessionController::class, 'store']);
 Route::post("/logout", [AuthenticatedSessionController::class, 'destroy']);

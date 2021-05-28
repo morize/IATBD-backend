@@ -14,10 +14,10 @@ class SittersSeeder extends Seeder
      */
     public function run()
     {
-        // DB::table('sitters')->insert([
-        //     'user_id' => 1,
-        //     'sit_rating' => 4,
-        //     'sit_status' => "active"
-        // ]);
+        DB::table('sitters')->insert([
+            'user_id' => 1,
+            'sit_rating' => 4,
+            'sit_status' => "active"
+        ]);
     }
 }

@@ -26,6 +26,9 @@ class DatabaseSeeder extends Seeder
             PetsSeeder::class,
             SittersSeeder::class,
             SitterPetChoicesSeeder::class,
+            
+            SitterRequestStatusSeeder::class,
+            SitterRequestsSeeder::class,
         ]);
     }
 }

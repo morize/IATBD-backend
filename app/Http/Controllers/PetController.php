@@ -11,7 +11,7 @@ class PetController extends Controller
 {
     public function index()
     {
-        return Pets::where("pet_status", "=", "available")->get();
+        return Pets::where("pet_status", "=", "available")->where("owner_id", "!=", Auth::id())->get();
     }
 
     public function show($id)

@@ -10,16 +10,20 @@ use Illuminate\Support\Facades\Log;
 
 class SittersController extends Controller
 {
-    public function show($user_id){
-        return Sitters::where("user_id", "=", $user_id)->first();
+    public function show($userId){
+        return Sitters::where("user_id", "=", $userId)->first();
     }
 
-    public function store(Request $request, Sitters $sitters){
-        $sitters->user_id = Auth::id();
-        $sitters->sit_status = $request->input('sitter_status');
+    public function showSitterRequests($userId){
+        return Sitters::where("user_id", "=", $userId)->first()->mySitterRequests;
+    }
+
+    public function store(Request $request, Sitters $sitter){
+        $sitter->user_id = Auth::id();
+        $sitter->sit_status = $request->input('sitter_status');
 
         try{
-            $sitters->save();
+            $sitter->save();
         }
         catch(Exception $e){
             return $e;
