@@ -15,21 +15,23 @@ class SitterRequestsSeeder extends Seeder
     public function run()
     {
         DB::table('sitter_requests')->insert([
-            'sitter_id' => 1,
+            'sitter_id' => 2,
             'pet_id' => 1,
             'sitter_remarks' => "Dit is een opmerking",
             'request_status' => 'pending',
             'owner_name' => 'Mauriccio',
             'pet_name' => 'Carlos',
+            'sitter_name' => 'mauri985',
         ]);
         
         DB::table('sitter_requests')->insert([
-            'sitter_id' => 1,
+            'sitter_id' => 2,
             'pet_id' => 2,
             'sitter_remarks' => "Dit wwww een opmerking",
             'request_status' => 'pending',
             'owner_name' => 'Mauriccio',
             'pet_name' => 'Pepe',
+            'sitter_name' => 'mauri985',
         ]);
     }
 }

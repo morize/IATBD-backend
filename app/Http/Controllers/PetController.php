@@ -26,6 +26,11 @@ class PetController extends Controller
         return response()->file($pathToFile);
     }
 
+    public function showPetRequests($id)
+    {
+        return Pets::where("id", "=", $id)->first()->myRequests;
+    }
+
     public function store(Request $request, Pets $pets)
     {
         $pets->owner_id = Auth::id();

@@ -19,5 +19,11 @@ class SittersSeeder extends Seeder
             'sit_rating' => 4,
             'sit_status' => "active"
         ]);
+
+        DB::table('sitters')->insert([
+            'user_id' => 2,
+            'sit_rating' => 4,
+            'sit_status' => "active"
+        ]);
     }
 }

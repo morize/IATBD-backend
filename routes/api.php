@@ -14,6 +14,7 @@ use App\Http\Controllers\UsersMediaController;
 use App\Http\Controllers\SittersController;
 use App\Http\Controllers\SitterPetChoicesController;
 use App\Http\Controllers\SitterRequestsController;
+use App\Http\Controllers\SitterReviewController;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -37,6 +38,7 @@ Route::get("/pet-kinds/{kind}/breeds", [PetKindBreedController::class, 'show']);
 Route::get("/pets", [PetController::class, 'index']);
 Route::post("/pets", [PetController::class, 'store']);
 Route::get("/pets/{userId}", [PetController::class, 'show']);
+Route::get("/pets/{userId}/requests", [PetController::class, 'showPetRequests']);
 Route::get("/pets/{userId}/image", [PetController::class, 'showImage']);
 
 Route::get("/users-media/{userId}", [UsersMediaController::class, 'show']);
@@ -59,6 +61,9 @@ Route::post("/sitter-preferences/{userId}", [SitterPetChoicesController::class, 
 Route::post("/sitter-requests", [SitterRequestsController::class, 'store']);
 Route::get("/sitter-requests/{sitterRequestId}", [SitterRequestsController::class, 'show']);
 Route::post("/sitter-requests/{sitterRequestId}", [SitterRequestsController::class, 'update']);
+
+Route::post("/sitter-reviews", [SitterReviewController::class, 'store']);
+Route::get("/sitter-reviews/{sitterId}", [SitterReviewController::class, 'show']);
 
 Route::post("/login", [AuthenticatedSessionController::class, 'store']);
 Route::post("/logout", [AuthenticatedSessionController::class, 'destroy']);

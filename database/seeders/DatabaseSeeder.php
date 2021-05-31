@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
             
             SitterRequestStatusSeeder::class,
             SitterRequestsSeeder::class,
+            //SitterReviewSeeder::class,
         ]);
     }
 }

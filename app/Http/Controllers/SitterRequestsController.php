@@ -19,6 +19,7 @@ class SitterRequestsController extends Controller
         $sitterRequest->request_status = "pending";
         $sitterRequest->owner_name = $request->input('owner_name');
         $sitterRequest->pet_name = $request->input('pet_name');
+        $sitterRequest->sitter_name = $request->input('sitter_name');
 
         if($request->input('sitter_remarks')){
             $sitterRequest->sitter_remarks = $request->input('sitter_remarks');
@@ -34,7 +35,8 @@ class SitterRequestsController extends Controller
 
     public function update(Request $request, $sitterRequestId){
         $sitterRequest = SitterRequests::where("id", "=", $sitterRequestId)->first();
-        $sitterRequest->request_status = $request->input('request_status');
+        
+        $sitterRequest->request_status = $request['requestStatus'];
         $sitterRequest->save();
     }
 }
