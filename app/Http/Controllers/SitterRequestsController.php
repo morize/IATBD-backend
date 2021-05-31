@@ -9,6 +9,10 @@ use App\Models\SitterRequests;
 
 class SitterRequestsController extends Controller
 {
+    public function index(){
+        return SitterRequests::all();
+    }
+
     public function show($sitterRequestId){
         return SitterRequests::where("id", "=", $sitterRequestId)->first();
     }

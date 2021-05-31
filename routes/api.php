@@ -46,6 +46,7 @@ Route::post("/users-media", [UsersMediaController::class, 'store']);
 Route::post("/users-media/{userId}", [UsersMediaController::class, 'update']);
 Route::get("/users-media/images/{imageFileName}", [UsersMediaController::class, 'showImage']);
 
+Route::get("/user", [UserController::class, 'index']);
 Route::get("/user/{userId}", [UserController::class, 'show']);
 Route::get("/user/{userId}/pets", [UserController::class, 'showUserPets']);
 
@@ -58,6 +59,7 @@ Route::post("/sitter-preferences", [SitterPetChoicesController::class, 'store'])
 Route::get("/sitter-preferences/{userId}", [SitterPetChoicesController::class, 'show']);
 Route::post("/sitter-preferences/{userId}", [SitterPetChoicesController::class, 'update']);
 
+Route::get("/sitter-requests", [SitterRequestsController::class, 'index']);
 Route::post("/sitter-requests", [SitterRequestsController::class, 'store']);
 Route::get("/sitter-requests/{sitterRequestId}", [SitterRequestsController::class, 'show']);
 Route::post("/sitter-requests/{sitterRequestId}", [SitterRequestsController::class, 'update']);
