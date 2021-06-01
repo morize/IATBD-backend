@@ -16,10 +16,10 @@ class CreateSittersTable extends Migration
         Schema::create('sitters', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id')->unique();
-            $table->string('sit_status');
+            $table->string('sitter_status');
 
             $table->foreign('user_id')->references('uuid')->on('users');
-            $table->foreign('sit_status')->references('status')->on('user_status');
+            $table->foreign('sitter_status')->references('status')->on('user_status');
         });
     }
 

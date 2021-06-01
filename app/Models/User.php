@@ -6,7 +6,8 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use App\Models\Pets;
+
+use App\Models\Pet;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -45,6 +46,6 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
     public function myPets(){
-        return $this->hasMany(Pets::class,'owner_id','uuid');
+        return $this->hasMany(Pet::class,'owner_id','uuid');
     }
 }

@@ -10,10 +10,10 @@ use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\PetController;
 use App\Http\Controllers\PetKindBreedController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\UsersMediaController;
-use App\Http\Controllers\SittersController;
+use App\Http\Controllers\UserMediaController;
+use App\Http\Controllers\SitterController;
 use App\Http\Controllers\SitterPetChoicesController;
-use App\Http\Controllers\SitterRequestsController;
+use App\Http\Controllers\SitterRequestController;
 use App\Http\Controllers\SitterReviewController;
 
 use Illuminate\Http\Request;
@@ -41,30 +41,30 @@ Route::get("/pets/{userId}", [PetController::class, 'show']);
 Route::get("/pets/{userId}/requests", [PetController::class, 'showPetRequests']);
 Route::get("/pets/{userId}/image", [PetController::class, 'showImage']);
 
-Route::get("/users-media/{userId}", [UsersMediaController::class, 'show']);
-Route::post("/users-media", [UsersMediaController::class, 'store']);
-Route::post("/users-media/{userId}", [UsersMediaController::class, 'update']);
-Route::get("/users-media/images/{imageFileName}", [UsersMediaController::class, 'showImage']);
+Route::get("/users-media/{userId}", [UserMediaController::class, 'show']);
+Route::post("/users-media", [UserMediaController::class, 'store']);
+Route::post("/users-media/{userId}", [UserMediaController::class, 'update']);
+Route::get("/users-media/images/{imageFileName}", [UserMediaController::class, 'showImage']);
 
 Route::get("/user", [UserController::class, 'index']);
 Route::get("/user/{id}", [UserController::class, 'show']);
 Route::post("/user/{id}/status", [UserController::class, 'updateStatus']);
 Route::get("/user/{id}/pets", [UserController::class, 'showUserPets']);
 
-Route::post("/sitters", [SittersController::class, 'store']);
-Route::get("/sitters/{userId}", [SittersController::class, 'show']);
-Route::get("/sitters/{userId}/requests", [SittersController::class, 'showSitterRequests']);
-Route::post("/sitters/{userId}", [SittersController::class, 'update']);
+Route::post("/sitters", [SitterController::class, 'store']);
+Route::get("/sitters/{userId}", [SitterController::class, 'show']);
+Route::get("/sitters/{userId}/requests", [SitterController::class, 'showSitterRequests']);
+Route::post("/sitters/{userId}", [SitterController::class, 'update']);
 
 Route::post("/sitter-preferences", [SitterPetChoicesController::class, 'store']);
 Route::get("/sitter-preferences/{userId}", [SitterPetChoicesController::class, 'show']);
 Route::post("/sitter-preferences/{userId}", [SitterPetChoicesController::class, 'update']);
 
-Route::get("/sitter-requests", [SitterRequestsController::class, 'index']);
-Route::post("/sitter-requests", [SitterRequestsController::class, 'store']);
-Route::get("/sitter-requests/{sitterRequestId}", [SitterRequestsController::class, 'show']);
-Route::post("/sitter-requests/{sitterRequestId}", [SitterRequestsController::class, 'update']);
-Route::delete("/sitter-requests/{sitterRequestId}", [SitterRequestsController::class, 'delete']);
+Route::get("/sitter-requests", [SitterRequestController::class, 'index']);
+Route::post("/sitter-requests", [SitterRequestController::class, 'store']);
+Route::get("/sitter-requests/{sitterRequestId}", [SitterRequestController::class, 'show']);
+Route::post("/sitter-requests/{sitterRequestId}", [SitterRequestController::class, 'update']);
+Route::delete("/sitter-requests/{sitterRequestId}", [SitterRequestController::class, 'delete']);
 
 Route::post("/sitter-reviews", [SitterReviewController::class, 'store']);
 Route::get("/sitter-reviews/{sitterId}", [SitterReviewController::class, 'show']);
