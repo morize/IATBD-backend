@@ -19,7 +19,7 @@ class CreatePetsTable extends Migration
             $table->string('pet_name');
             $table->string('pet_kind');
             $table->string('pet_breed');
-            $table->string('pet_image')->default("/img/pet_default.jpg");
+            $table->string('pet_image')->default("img/pet_default.jpg");
             $table->string('pet_status')->default("available");
 
             $table->foreign('owner_id')->references('uuid')->on('users');

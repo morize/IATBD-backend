@@ -15,12 +15,10 @@ class CreateUsersMediaTable extends Migration
     {
         Schema::create('users_media', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->string('image_1');
-            $table->string('image_2')->nullable();
-            $table->string('image_3')->nullable();
+            $table->unsignedBigInteger('user_id')->unique();
+            $table->string('image_1')->nullable()->default(null);
+            $table->string('image_2')->nullable()->default(null);
             $table->string('video_link')->nullable();
-            $table->timestamps();
             
             $table->foreign('user_id')->references('uuid')->on('users');
         });
