@@ -23,8 +23,8 @@ class CreatePetsTable extends Migration
             $table->string('pet_status')->default("available");
 
             $table->foreign('owner_id')->references('uuid')->on('users');
+            $table->foreign('pet_kind')->references('kind')->on('pet_kind_and_breed');
             $table->foreign('pet_status')->references('status')->on('pet_status');
-            // foreign relationship for pet kind and breed
         });
     }
 

@@ -16,7 +16,6 @@ class CreateAvailablePetsForSitterTable extends Migration
         Schema::create('available_pets_for_sitter', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('sitter_id');
-            // Duplicate entry possible for pet_kind?
             $table->string('pet_kind');
 
             $table->foreign('sitter_id')->references('id')->on('sitters');

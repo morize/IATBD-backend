@@ -25,7 +25,6 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             PetsSeeder::class,
             SittersSeeder::class,
-            SitterPetChoicesSeeder::class,
             
             SitterRequestStatusSeeder::class,
             SitterRequestsSeeder::class,

@@ -16,7 +16,7 @@ class CreateSitterReviewsTable extends Migration
         Schema::create('sitter_reviews', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('sitter_id');
-            $table->unsignedBigInteger('reviewer_id')->unique();
+            $table->unsignedBigInteger('reviewer_id');
             $table->unique(['reviewer_id', 'sitter_id'], 'unq_ab_comb');
             $table->integer('rating');
             $table->string('review', 150);
