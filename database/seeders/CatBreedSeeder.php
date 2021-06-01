@@ -15,9 +15,10 @@ class CatBreedSeeder extends Seeder
     public function run()
     {
         $cat_breed_array = ["Bengal","Burmese","British Shorthair","Siberian","Siamese","Tonkinese"];
+        
         foreach ($cat_breed_array as $breed) {
-            DB::table('animal_and_breed')->insert([
-                'animal' => "Cat",
+            DB::table('pet_kind_and_breed')->insert([
+                'kind' => "Kat",
                 'breed' => $breed,
             ]);
         }

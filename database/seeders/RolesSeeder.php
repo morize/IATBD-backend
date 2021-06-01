@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use DB;
 
-class TestErrorSeeder extends Seeder
+class RolesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,9 +14,12 @@ class TestErrorSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('animal_and_breed')->insert([
-            'animal' => "Cat",
-            'breed' => "Tonkinese",
+        DB::table('roles')->insert([
+            'role' => "user",
+        ]);
+
+        DB::table('roles')->insert([
+            'role' => "admin",
         ]);
     }
 }
