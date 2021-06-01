@@ -21,9 +21,5 @@ class PetStatusSeeder extends Seeder
         DB::table('pet_status')->insert([
             'status' => "sitted",
         ]);
-
-        DB::table('pet_status')->insert([
-            'status' => "deleted",
-        ]);
     }
 }
