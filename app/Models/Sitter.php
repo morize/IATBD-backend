@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\SitterPetChoices;
-use App\Models\SitterRequests;
+use App\Models\SitterRequest;
 use App\Models\User;
 
-class Sitters extends Model
+class Sitter extends Model
 {
     public $table = 'sitters';
 
@@ -23,6 +23,6 @@ class Sitters extends Model
     }
 
     public function mySitterRequests(){
-        return $this->hasMany(SitterRequests::class,'sitter_id','id');
+        return $this->hasMany(SitterRequest::class,'sitter_id','id');
     }
 }

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Sitters;
+use App\Models\Sitter;
 use App\Models\SitterPetChoices;
 
 use Illuminate\Support\Facades\Auth;
@@ -13,12 +13,12 @@ class SitterPetChoicesController extends Controller
 {
 
     public function show($userId){
-        return Sitters::where("user_id", "=", $userId)->first()->myPetPreferences->pluck('pet_kind');
+        return Sitter::where("user_id", "=", $userId)->first()->myPetPreferences->pluck('pet_kind');
     }
 
     public function store(Request $request){
         $requestPreferences= json_decode($request->all()['sitter_preferences']);
-        $sitterId = Sitters::where("user_id", "=", Auth::id())->pluck('id')->first();
+        $sitterId = Sitter::where("user_id", "=", Auth::id())->pluck('id')->first();
 
         foreach($requestPreferences as $requestPreference){
             if($requestPreference->checked){
@@ -35,8 +35,8 @@ class SitterPetChoicesController extends Controller
     }
 
     public function update(Request $request, $userId){
-        $currentPreferences = json_decode(Sitters::where("user_id", "=", $userId)->first()->myPetPreferences->pluck('pet_kind'));
-        $sitterId = Sitters::where("user_id", "=", $userId)->pluck('id')->first();
+        $currentPreferences = json_decode(Sitter::where("user_id", "=", $userId)->first()->myPetPreferences->pluck('pet_kind'));
+        $sitterId = Sitter::where("user_id", "=", $userId)->pluck('id')->first();
         $requestPreferences= json_decode($request->all()['sitter_preferences']);
         
         foreach($requestPreferences as $requestPreference){
