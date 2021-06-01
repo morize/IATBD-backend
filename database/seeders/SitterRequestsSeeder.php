@@ -19,19 +19,19 @@ class SitterRequestsSeeder extends Seeder
             'pet_id' => 1,
             'sitter_remarks' => "Dit is een opmerking",
             'request_status' => 'pending',
-            'owner_name' => 'Mauriccio',
+            'owner_name' => 'admin',
             'pet_name' => 'Carlos',
-            'sitter_name' => 'mauri985',
+            'sitter_name' => 'user1',
         ]);
         
         DB::table('sitter_requests')->insert([
             'sitter_id' => 2,
             'pet_id' => 2,
-            'sitter_remarks' => "Dit wwww een opmerking",
+            'sitter_remarks' => "Dit is een opmerking",
             'request_status' => 'pending',
-            'owner_name' => 'Mauriccio',
+            'owner_name' => 'admin',
             'pet_name' => 'Pepe',
-            'sitter_name' => 'mauri985',
+            'sitter_name' => 'user1',
         ]);
     }
 }
