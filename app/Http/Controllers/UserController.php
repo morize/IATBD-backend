@@ -21,4 +21,17 @@ class UserController extends Controller
     {   
         return User::where("uuid", "=", $id)->first()->myPets;
     }
+
+    public function updateStatus(Request $request, $id)
+    {   
+        $userInstance = User::where("uuid", "=", $id)->first();
+        $userInstance->status = $request->input('status'); 
+
+        try{
+            $userInstance->save();
+        }
+        catch(Exception $e){
+            return $e;
+        }
+    }
 }

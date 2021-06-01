@@ -43,4 +43,10 @@ class SitterRequestsController extends Controller
         $sitterRequest->request_status = $request['requestStatus'];
         $sitterRequest->save();
     }
+
+    public function delete($sitterRequestId){
+        $sitterRequest = SitterRequests::where("id", "=", $sitterRequestId)->first();
+        
+        $sitterRequest->delete();
+    }
 }

@@ -47,8 +47,9 @@ Route::post("/users-media/{userId}", [UsersMediaController::class, 'update']);
 Route::get("/users-media/images/{imageFileName}", [UsersMediaController::class, 'showImage']);
 
 Route::get("/user", [UserController::class, 'index']);
-Route::get("/user/{userId}", [UserController::class, 'show']);
-Route::get("/user/{userId}/pets", [UserController::class, 'showUserPets']);
+Route::get("/user/{id}", [UserController::class, 'show']);
+Route::post("/user/{id}/status", [UserController::class, 'updateStatus']);
+Route::get("/user/{id}/pets", [UserController::class, 'showUserPets']);
 
 Route::post("/sitters", [SittersController::class, 'store']);
 Route::get("/sitters/{userId}", [SittersController::class, 'show']);
@@ -63,9 +64,11 @@ Route::get("/sitter-requests", [SitterRequestsController::class, 'index']);
 Route::post("/sitter-requests", [SitterRequestsController::class, 'store']);
 Route::get("/sitter-requests/{sitterRequestId}", [SitterRequestsController::class, 'show']);
 Route::post("/sitter-requests/{sitterRequestId}", [SitterRequestsController::class, 'update']);
+Route::delete("/sitter-requests/{sitterRequestId}", [SitterRequestsController::class, 'delete']);
 
 Route::post("/sitter-reviews", [SitterReviewController::class, 'store']);
 Route::get("/sitter-reviews/{sitterId}", [SitterReviewController::class, 'show']);
+
 
 Route::post("/login", [AuthenticatedSessionController::class, 'store']);
 Route::post("/logout", [AuthenticatedSessionController::class, 'destroy']);
