@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 
-class UsersMedia extends Model
+class UserMedia extends Model
 {
     public $table = 'users_media';
 

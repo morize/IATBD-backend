@@ -21,11 +21,10 @@ class DatabaseSeeder extends Seeder
             
             UserStatusSeeder::class,
             PetStatusSeeder::class,
-            RolesSeeder::class,
+            UserRolesSeeder::class,
             UserSeeder::class,
             PetsSeeder::class,
             SittersSeeder::class,
-            SitterPetChoicesSeeder::class,
             
             SitterRequestStatusSeeder::class,
             SitterRequestsSeeder::class,

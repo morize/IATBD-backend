@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
-use App\Models\SitterRequests;
+use App\Models\SitterRequest;
 
-class Pets extends Model
+class Pet extends Model
 {
     public $table = 'pets';
 
@@ -18,6 +18,6 @@ class Pets extends Model
     }
 
     public function myRequests(){
-        return $this->hasMany(SitterRequests::class,'pet_id','id');
+        return $this->hasMany(SitterRequest::class,'pet_id','id');
     }
 }

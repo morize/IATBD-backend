@@ -16,12 +16,12 @@ class SittersSeeder extends Seeder
     {
         DB::table('sitters')->insert([
             'user_id' => 1,
-            'sit_status' => "active"
+            'sitter_status' => "active"
         ]);
 
         DB::table('sitters')->insert([
             'user_id' => 2,
-            'sit_status' => "active"
+            'sitter_status' => "active"
         ]);
     }
 }

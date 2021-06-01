@@ -4,10 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use Illuminate\Support\Facades\Log;
-
 use App\Models\SitterReview;
-use App\Models\SitterRequests;
+use App\Models\SitterRequest;
 
 class SitterReviewController extends Controller
 {
@@ -21,7 +19,7 @@ class SitterReviewController extends Controller
         ]);
         
         
-        $sitterId = SitterRequests::where('id', "=", intval($request->input('sitter_request_id')))->first()->mySitter->id;
+        $sitterId = SitterRequest::where('id', "=", intval($request->input('sitter_request_id')))->first()->mySitter->id;
         
         $sitterReview->sitter_id = $sitterId;
         $sitterReview->reviewer_id = $request->input('reviewer_id');

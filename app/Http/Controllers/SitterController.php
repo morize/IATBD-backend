@@ -3,24 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Sitters;
-
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
 
-class SittersController extends Controller
+use App\Models\Sitter;
+
+class SitterController extends Controller
 {
     public function show($userId){
-        return Sitters::where("user_id", "=", $userId)->first();
+        return Sitter::where("user_id", "=", $userId)->first();
     }
 
     public function showSitterRequests($userId){
-        return Sitters::where("user_id", "=", $userId)->first()->mySitterRequests;
+        return Sitter::where("user_id", "=", $userId)->first()->mySitterRequests;
     }
 
-    public function store(Request $request, Sitters $sitter){
+    public function store(Request $request, Sitter $sitter){
         $sitter->user_id = Auth::id();
-        $sitter->sit_status = $request->input('sitter_status');
+        $sitter->sitter_status = $request->input('sitter_status');
 
         try{
             $sitter->save();
@@ -31,8 +30,8 @@ class SittersController extends Controller
     }
 
     public function update(Request $request, $userId){
-        $sitterInstance = Sitters::where("user_id", "=", $userId)->first();
-        $sitterInstance->sit_status = $request->input('sitter_status'); 
+        $sitterInstance = Sitter::where("user_id", "=", $userId)->first();
+        $sitterInstance->sitter_status = $request->input('sitter_status'); 
 
         try{
             $sitterInstance->save();

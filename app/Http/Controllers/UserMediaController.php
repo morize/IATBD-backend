@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-use App\Models\UsersMedia;
+use App\Models\UserMedia;
 
-class UsersMediaController extends Controller
+class UserMediaController extends Controller
 {
     public function show($userId){
-        return UsersMedia::where("user_id", "=", $userId)->first();
+        return UserMedia::where("user_id", "=", $userId)->first();
     }
 
     public function showImage($imageFileName){
@@ -19,16 +19,16 @@ class UsersMediaController extends Controller
         return response()->file($pathToFile);
     }
 
-    public function store(Request $request, UsersMedia $usersMedia)
+    public function store(Request $request, UserMedia $userMedia)
     {
-        $usersMedia->user_id = Auth::id();
+        $userMedia->user_id = Auth::id();
 
         if($request->file('sitter_image_1')){
             $sitterFImage = $request->file('sitter_image_1');
             $sitterFImageName = $sitterFImage->getClientOriginalName();
             $sitterFImage->storeAs('user_images/', $sitterFImageName, 'public');
 
-            $usersMedia->image_1 =$sitterFImageName;
+            $userMedia->image_1 =$sitterFImageName;
         }
 
         if($request->file('sitter_image_2')){
@@ -36,15 +36,15 @@ class UsersMediaController extends Controller
             $sitterSImageName = $sitterSImage->getClientOriginalName();
             $sitterSImage->storeAs('user_images/', $sitterSImageName, 'public');
 
-            $usersMedia->image_2 = $sitterSImageName;
+            $userMedia->image_2 = $sitterSImageName;
         }
 
         if($request->input('sitter_video_link')){
-            $usersMedia->video_link = $request->input('sitter_video_link');
+            $userMedia->video_link = $request->input('sitter_video_link');
         }
 
         try{
-            $usersMedia->save();
+            $userMedia->save();
             return "success";
         }
         catch(Exception $e){
@@ -54,7 +54,7 @@ class UsersMediaController extends Controller
 
     public function update(Request $request, $userId)
     {
-        $sitterMedia = UsersMedia::where("user_id", "=", $userId)->first();
+        $sitterMedia = UserMedia::where("user_id", "=", $userId)->first();
         
         if($request->file('sitter_image_1')){
             $sitterFImage = $request->file('sitter_image_1');
