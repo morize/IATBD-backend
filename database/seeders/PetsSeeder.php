@@ -66,7 +66,7 @@ class PetsSeeder extends Seeder
             'sit_hourly_prize' => 10.99,
             'sit_date_start' => "8/2/2019",
             'sit_date_end' => "24/2/2019",
-            'sit_remarks' => "Hallo yqweqweqwes help",
+            'sit_remarks' => "Please come back :(",
         ]);
     }
 }
