@@ -20,7 +20,7 @@ class SittersController extends Controller
 
     public function store(Request $request, Sitters $sitter){
         $sitter->user_id = Auth::id();
-        $sitter->sit_status = $request->input('sitter_status');
+        $sitter->sitter_status = $request->input('sitter_status');
 
         try{
             $sitter->save();
@@ -32,7 +32,7 @@ class SittersController extends Controller
 
     public function update(Request $request, $userId){
         $sitterInstance = Sitters::where("user_id", "=", $userId)->first();
-        $sitterInstance->sit_status = $request->input('sitter_status'); 
+        $sitterInstance->sitter_status = $request->input('sitter_status'); 
 
         try{
             $sitterInstance->save();
