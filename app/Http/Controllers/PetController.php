@@ -16,7 +16,11 @@ class PetController extends Controller
 
     public function show($id)
     {
-        return Pet::where("id", "=", $id)->first();
+        $petInstance = Pet::where("id", "=", $id)->first();
+        $owner_name = Pet::where("id", "=", $id)->first()->myOwner->name;
+        $petInstance->owner_name = $owner_name;
+        
+        return $petInstance;
     }
 
     public function showImage($id)
@@ -55,7 +59,7 @@ class PetController extends Controller
 
         try{
             $pet->save();
-            //Wonder what the best type of success return is.
+            //  Wonder what the best type of success return is.
             return "success";
         }
         catch(Exception $e){

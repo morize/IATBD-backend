@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\SitterRequest;
+use App\Models\Pet;
 
 class SitterRequestController extends Controller
 {
@@ -38,8 +39,14 @@ class SitterRequestController extends Controller
 
     public function update(Request $request, $sitterRequestId){
         $sitterRequest = SitterRequest::where("id", "=", $sitterRequestId)->first();
-        
         $sitterRequest->request_status = $request['requestStatus'];
+        
+        if($request['requestStatus'] === "accepted"){
+            $petInstance = Pet::where("id", "=", $sitterRequest->pet_id )->first();
+            $petInstance->pet_status = "sitted";
+            $petInstance->save();
+        }
+
         $sitterRequest->save();
     }
 
