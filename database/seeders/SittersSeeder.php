@@ -14,14 +14,9 @@ class SittersSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('sitters')->insert([
-            'user_id' => 1,
-            'sitter_status' => "active"
-        ]);
-
-        DB::table('sitters')->insert([
-            'user_id' => 2,
-            'sitter_status' => "active"
-        ]);
+        // DB::table('sitters')->insert([
+        //     'user_id' => 1,
+        //     'sitter_status' => "active"
+        // ]);
     }
 }
