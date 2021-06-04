@@ -44,7 +44,6 @@ Route::middleware(['auth:sanctum'])->group(function(){
     Route::get("/users-media/{userId}", [UserMediaController::class, 'show']);
     Route::post("/users-media", [UserMediaController::class, 'store']);
     Route::post("/users-media/{userId}", [UserMediaController::class, 'update']);
-    Route::get("/users-media/images/{imageFileName}", [UserMediaController::class, 'showImage']);
     
     Route::get("/user", [UserController::class, 'index']);
     Route::get("/user/{id}", [UserController::class, 'show']);
@@ -76,3 +75,4 @@ Route::post("/register", [RegisteredUserController::class, 'store']);
 Route::post("/forgot-password", [PasswordResetLinkController::class, 'store']);
 Route::post('/reset-password', [NewPasswordController::class, 'store']);
 Route::post("/email-verification", [EmailVerificationNotificationController::class, 'store'])->middleware('auth:sanctum');
+Route::get("/users-media/images/{imageFileName}", [UserMediaController::class, 'showImage']);
